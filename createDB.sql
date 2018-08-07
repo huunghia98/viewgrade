@@ -1,6 +1,6 @@
 CREATE TABLE `users` (
   `user` varchar(100) NOT NULL,
-  `password` varchar(100) DEFAULT NULL,
+  `password` varchar(65) DEFAULT NULL,
   PRIMARY KEY (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

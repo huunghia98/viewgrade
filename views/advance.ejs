@@ -14,6 +14,7 @@
 
             <label class="advanceLabel">Mã môn học</label>
             <select name="courseId">
+                <option value="">(None)</option>
                 <% for (var i = 0; i < courses.length; i++) { %>
                 <option value="<%=courses[i].courseId%>"><%=courses[i].courseId%></option>
                 <% } %>
@@ -21,6 +22,7 @@
 
             <label class="advanceLabel">STT lớp môn học</label>
             <select name="STT">
+                <option value="">(None)</option>
                 <% for (var i = 1; i <= 10; i++) {%>
                 <option value="<%=i%>"><%=i%></option>
                 <%}%>
@@ -28,6 +30,7 @@
 
             <label class="advanceLabel">Năm học</label>
             <select name="yearId">
+                <option value="">(None)</option>
                 <% for (var i = 0; i < years.length; i++) { %>
                 <option value="<%=years[i].id%>"><%=years[i].name%></option>
                 <% } %>
@@ -35,6 +38,7 @@
 
             <label class="advanceLabel">Học kỳ</label>
             <select name="semesterId">
+                <option value="">(None)</option>
                 <% for (var i = 0; i < semester.length; i++) {%>
                 <option value="<%=semester[i].id%>"><%=semester[i].name%></option>
                 <% } %>

@@ -1,6 +1,7 @@
 var db = require('../db');
 var fs = require('fs')
 var path = require('path')
+var crypto = require('crypto')
 
 var index = {
     login(user, pass) {
@@ -49,8 +50,8 @@ var index = {
                 'INNER JOIN `courses` as `c` on `files`.`courseId` = `c`.`courseId`' +
                 'INNER JOIN `years` as `y` on `files`.`yearId` = `y`.`id`' +
                 'INNER JOIN `semester` `s` on `s`.`id` = `files`.`semesterId`' +
-                'WHERE (`files`.`courseId` = ? and `c`.`courseName` like ? and `files`.`STT` = ? and `yearId` = ? and `semesterId` = ?)';
-            db.query(query, [courseId, '%' + courseName + '%', STT, yearId, semesterId], (err, ret) => {
+                'WHERE (`files`.`courseId` like ? and `c`.`courseName` like ? and `files`.`STT` like ? and `yearId` like ? and `semesterId` like ?)';
+            db.query(query, ['%' + courseId + '%', '%' + courseName + '%', '%'+STT+'%', '%'+yearId+'%', '%'+semesterId+'%'], (err, ret) => {
                 if (err) reject(err)
                 else resolve(ret)
             })

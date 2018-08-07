@@ -4,6 +4,7 @@ var index = require('../models/index');
 var multer = require('multer')
 var upload = multer({dest: 'upload/'})
 var fs = require('fs')
+var crypto = require('crypto')
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -28,7 +29,7 @@ router.get('/home', (req, res) => {
 router.post('/', async (req, res) =>{
     try {
         var userId = req.body.userId
-        var pass = req.body.pass
+        var pass = crypto.createHash('sha256').update(req.body.pass).digest('hex')
         var ret = await index.login(userId, pass)
         if (ret[0].user == userId && ret[0].password == pass) {
             req.session.userId = req.body.userId

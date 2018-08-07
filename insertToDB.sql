@@ -1,6 +1,6 @@
 insert into `users` (`user`, `password`) values
-('15022861', 'namtao'),
-('admin', 'admin');
+('15022861', sha2('namtao', 256)),
+('admin', sha2('admin', 256));
 
 insert into `courses` (`courseName`, `courseId`) values
 ('Mô hình hóa và mô phòng mạng', 'ELT3063'),
