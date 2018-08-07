@@ -1,0 +1,62 @@
+<%- include layouts/header.ejs %>
+    <%- include main.ejs %>
+    <% if (admin) { %>
+        <li class="li-nav"><a href="/upload">UPLOAD FILE ĐIỂM</a></li>
+        <li class="li-nav"><a href="/delete">XÓA FILE ĐIỂM</a></li>
+    <% } %>
+    </ul>
+    <br/>
+
+    <div>
+        <div style="margin-bottom: 20px; margin-left: 100px;">
+            <button onClick="addFollow();" style="cursor:pointer;" class="addFollow">+ Add Follow</button>
+        </div>
+        <div class="data-table" style="margin-left: 100px">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th width="150px">Mã môn học</th>
+                    <th width="400px">Tên môn học</th>
+                    <th width="150">STT lớp môn học</th>
+                    <th width="150px">Năm học</th>
+                    <th width="100px">Học kỳ</th>
+                    <th width="150px">Action</th>
+                </tr>
+
+                <% if(followList.length){
+
+                for(var i = 0; i < followList.length; i++) { %>
+
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=followList[i].courseId%></td>
+                    <td><%=followList[i].courseName%></td>
+                    <td><%=followList[i].STT%></td>
+                    <td><%=followList[i].name%></td>
+                    <td><%=followList[i].semester%></td>
+                    <td style="text-align: center;">
+                        <% if (followFiles[i] != null) { %>
+                        <a class="a-inside view" href="../follow/view/<%=followFiles[i].fileId%>">Xem</a>
+                        <% } else { %>
+                        <a class="a-inside notview">Chưa có</a>
+                        <% } %>
+                        <a class="a-inside delete" href="../follow/delete/<%=followList[i].id%>">unfollow</a>
+                    </td>
+                </tr>
+                <% }
+
+                }else{ %>
+                <tr>
+                    <td colspan="7" style="color: red; font-weight: bold;">Chưa follow môn học nào</td>
+                </tr>
+                <% } %>
+
+            </table>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+    </body>
+
+<%- include layouts/footer.ejs %>

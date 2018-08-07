@@ -1,0 +1,12 @@
+<%- include layouts/header.ejs %>
+    <%- include main.ejs %>
+    <% if (admin) { %>
+        <li class="li-nav"><a href="/upload">UPLOAD FILE ĐIỂM</a></li>
+        <li class="li-nav"><a href="/delete">XÓA FILE ĐIỂM</a></li>
+    <% } %>
+    </ul>
+    <br/>
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+    </body>
+
+<%- include layouts/footer.ejs %>

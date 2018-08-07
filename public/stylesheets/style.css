@@ -1,0 +1,167 @@
+.loginLabel {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.loginButton {
+    width: 250px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: #DBEDED;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8DC9DE;
+    margin-bottom: 50px;
+}
+
+.li-nav {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #8C9DEE;
+    text-decoration: none;
+    color: white;
+}
+
+.backButton {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #38DA31;
+    color: black;
+}
+
+.logoutButton {
+    float: right;
+    border: none;
+    margin-right: 20px;
+    background-color: #8DC9DE;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.logoutButton:hover {
+    background-color: #8C9DEE;
+    cursor: pointer;
+    color: white;
+}
+
+.inputCourse {
+    width: 500px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.Radio {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.searchButton {
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #4E82B1;
+    border: none;
+}
+
+.data-table {
+    margin-left: 10px;
+    margin-right: 30px;
+    background-color: #9fcdff;
+}
+
+.data-table table{
+    border-collapse: collapse;
+    border: 1px solid #9F5EC2;
+    width: 100%;
+}
+
+.newLabel {
+    width: 200px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.advanceLabel {
+    margin-left: 50px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.inputupload {
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.horizonLabel {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.addFollow {
+    width: 150px;
+    height: 40px;
+    background-color: darkorange;
+    border-radius: 10px;
+    color: white;
+    border: none;
+}
+
+.a-inside{padding:4px 10px;border:1px solid #fff;text-decoration:none;}
+.a-inside:hover {text-decoration: none;}
+.a-inside.delete{background-color:#D23641;color:#fff; float: right}
+.a-inside.view {background-color:#FFEA5C;color:black; float: left; width: 80px; cursor: pointer;}
+.a-inside.notview {
+    background-color:dimgray;
+    color:#fff;
+    float: left;
+    cursor: pointer;
+    width: 80px;
+}
+
+select {
+    margin-bottom: 20px;
+}
+
+th {
+    text-align: center;
+}
+
+.findButton {
+    height: 50px;
+    width: 200px;
+    background-color: #F5D856;
+    border: none;
+    border-radius: 10px;
+    color: purple;
+    font-weight: bold;
+    font-size: 20px;
+}

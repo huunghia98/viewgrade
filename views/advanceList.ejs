@@ -1,0 +1,85 @@
+<%- include layouts/header.ejs%>
+    <%- include main.ejs %>
+    <% if (admin) { %>
+    <li class="li-nav"><a href="/upload">UPLOAD FILE ĐIỂM</a></li>
+    <li class="li-nav"><a href="/delete">XÓA FILE ĐIỂM</a></li>
+    <% } %>
+    </ul>
+    <br/>
+
+    <div>
+        <form method="post">
+            <label class="advanceLabel">Tên môn học</label>
+            <input type="text" id="courseName" name="courseName" style="height: 30px; width: 250px;">
+
+            <label class="advanceLabel">Mã môn học</label>
+            <select name="courseId">
+                <% for (var i = 0; i < courses.length; i++) { %>
+                <option value="<%=courses[i].courseId%>"><%=courses[i].courseId%></option>
+                <% } %>
+            </select>
+
+            <label class="advanceLabel">STT lớp môn học</label>
+            <select name="STT" val>
+                <% for (var i = 1; i <= 10; i++) {%>
+                <option value="<%=i%>"><%=i%></option>
+                <% } %>
+            </select>
+
+            <label class="advanceLabel">Năm học</label>
+            <select name="yearId">
+                <% for (var i = 0; i < years.length; i++) { %>
+                <option value="<%=years[i].id%>"><%=years[i].name%></option>
+                <% } %>
+            </select>
+
+            <label class="advanceLabel">Học kỳ</label>
+            <select name="semesterId">
+                <% for (var i = 0; i < semester.length; i++) {%>
+                <option value="<%=semester[i].id%>"><%=semester[i].name%></option>
+                <% } %>
+            </select>
+
+            <input type="submit" value="Search" class="findButton" style="margin-left: 100px">
+        </form>
+    </div>
+    <br/>
+
+    <div>
+        <% if (!data.length) { %>
+        <h2 style="text-align: center;">Không tìm thấy file điểm</h2>
+        <% } else { %>
+
+        <div class="data-table" style="margin-left: 100px; margin-right: 100px;">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th width="150px">Mã môn học</th>
+                    <th width="400px">Tên môn học</th>
+                    <th width="150">STT lớp môn học</th>
+                    <th width="100px">Năm học</th>
+                    <th width="80px">Học kỳ</th>
+                    <th width="80px">Action</th>
+                </tr>
+
+                <% for (var i = 0; i < data.length; i++) { %>
+
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].courseId%></td>
+                    <td><%=data[i].courseName%></td>
+                    <td><%=data[i].STT%></td>
+                    <td><%=data[i].yearName%></td>
+                    <td><%=data[i].semesterName%></td>
+                    <td style="text-align: center;">
+                        <a class="a-inside view" href="../follow/view/<%=data[i].fileId%>">Xem</a>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+        <% } %>
+    </div>
+
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+<%- include layouts/footer.ejs%>

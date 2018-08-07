@@ -1,0 +1,55 @@
+<%- include layouts/header.ejs %>
+<%- include main.ejs %>
+<% if (admin) { %>
+<li class="li-nav"><a href="/upload">UPLOAD FILE ĐIỂM</a></li>
+<li class="li-nav"><a href="/delete">XÓA FILE ĐIỂM</a></li>
+<% } %>
+</ul>
+<br/>
+
+<div style="margin-left: 200px;">
+    <form method="post">
+        <label class="newLabel">Mã môn học</label>
+        <select name="courseId" style="width: 150px;">
+            <% for (var i = 0; i < courses.length; i++) { %>
+                <option value="<%=courses[i].courseId%>"><%=courses[i].courseId%></option>
+            <% } %>
+        </select>
+        <br/>
+
+        <label class="newLabel">STT lớp môn học</label>
+        <select name="STT" style="width: 50px">
+            <% for(var i = 1; i <= 10; i++) { %>
+            <option value="<%=i%>"><%=i%></option>
+            <% } %>
+        </select>
+        <br/>
+
+        <label class="newLabel">Năm học</label>
+        <select name="yearId" style="width: 150px">
+            <% for (var i = 0; i < years.length; i++) { %>
+                <option value="<%=years[i].id%>"><%=years[i].name%></option>
+            <% } %>
+        </select>
+        <br/>
+
+        <label class="newLabel">Học kỳ</label>
+        <select name="semester" style="width: 150px">
+            <% for (var i = 0; i < semester.length; i++) { %>
+                <option value="<%=semester[i].id%>"><%=semester[i].name%></option>
+            <% } %>
+        </select>
+        <br/><br/>
+
+        <label class="newLabel">&nbsp;</label>
+        <input type="submit" value="Theo dõi" class="searchButton">
+        <input type="button" value="Bỏ qua" class="searchButton" style="margin-left: 20px;" onclick="cancel()">
+        <br/>
+
+    </form>
+</div>
+
+<script type="text/javascript" src="/javascripts/index.js"></script>
+</body>
+
+<%- include layouts/footer.ejs %>

@@ -1,0 +1,31 @@
+<%- include layouts/header.ejs %>
+
+<body style="margin-left: 40px;">
+<img src="/images/uet_logo.jpg" width="400px" height="100px" style="margin-bottom: 50px">
+<form class="float: left" method="post" action="/">
+    <h3>ĐĂNG NHẬP BẰNG TÀI KHOẢN UETMAIL</h3>
+    <br/>
+    <label class="loginLabel">Mã số sinh viên</label>
+    <br/>
+    <input type="text" id="userId" name="userId" class="loginButton">
+    <br/>
+
+    <label class="loginLabel">Mật khẩu</label>
+    <br/>
+    <input type="password" id="pass" name="pass" class="loginButton">
+    <br/>
+    <% if (success == 'false') { %>
+    <span id="err" name="err" style="color: red;">Mã số sinh viên hoặc mật khẩu không đúng</span>
+    <% } %>
+    <br/>
+
+    <input type="submit" value="Đăng nhập" style="background-color: #38DA31; color: white" class="loginButton">
+    <br/>
+</form>
+
+<script  type="text/javascript">
+    document.getElementById("userId").focus();
+</script>
+</body>
+
+<%- include layouts/footer.ejs %>

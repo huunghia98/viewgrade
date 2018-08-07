@@ -1,0 +1,30 @@
+<%- include layouts/header.ejs %>
+    <%- include main.ejs %>
+    <% if (admin) { %>
+    <li class="li-nav"><a href="/upload">UPLOAD FILE ĐIỂM</a></li>
+    <li class="li-nav"><a href="/delete">XÓA FILE ĐIỂM</a></li>
+    <% } %>
+    </ul>
+    <br/>
+        <div style="text-align: center;">
+            <form method="post">
+                <input type="text" id="inputCourse" name="inputCourse" placeholder="Nhập tên hoặc mã môn học" class="inputCourse">
+                <br/>
+                <% if (!input) { %>
+                    <span style="color: red; margin-top: 10px;">Bạn chưa nhập tên hoặc mã môn học</span>
+                <% } %>
+                <br/>
+                <input type="radio" id="courseName" name="courseName" class="Radio" onclick="clickName()"> Tên môn học
+                <input type="radio" id="courseId" name="courseId" class="Radio" style="margin-left: 100px;" onclick="clickId()"> Mã môn học
+                <br/>
+                <input type="submit" value="Tìm kiếm" class="searchButton">
+            </form>
+        </div>
+
+        <script>
+            document.getElementById("courseName").checked = true;
+        </script>
+    </body>
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+
+<%- include layouts/footer.ejs%>

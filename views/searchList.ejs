@@ -1,0 +1,71 @@
+<%- include layouts/header.ejs%>
+    <%- include main.ejs %>
+    <% if (admin) { %>
+    <li class="li-nav"><a href="/upload">UPLOAD FILE ĐIỂM</a></li>
+    <li class="li-nav"><a href="/delete">XÓA FILE ĐIỂM</a></li>
+    <% } %>
+    </ul>
+    <br/>
+    <div style="text-align: center;">
+        <form method="post">
+            <input type="text" id="inputCourse" name="inputCourse" value="<%=reqBody.inputCourse%>" placeholder="Nhập tên hoặc mã môn học" class="inputCourse">
+            <br/>
+
+            <br/>
+            <input type="radio" id="courseName" name="courseName" class="Radio" onclick="clickName()"> Tên môn học
+            <input type="radio" id="courseId" name="courseId" class="Radio" style="margin-left: 100px;" onclick="clickId()"> Mã môn học
+            <br/>
+            <input type="submit" value="Tìm kiếm" class="searchButton" style="margin-bottom: 50px;">
+        </form>
+    </div>
+
+    <div style="margin-left: 50px;">
+        <% if (!data.length) { %>
+            <h2 style="text-align: center;">Không tìm thấy kết quả hoặc chưa có điểm</h2>
+        <% } else { %>
+
+        <div class="data-table" style="margin-left: 100px; margin-right: 100px;">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th width="150px">Mã môn học</th>
+                    <th width="400px">Tên môn học</th>
+                    <th width="150">STT lớp môn học</th>
+                    <th width="100px">Năm học</th>
+                    <th width="80px">Học kỳ</th>
+                    <th width="80px">Action</th>
+                </tr>
+
+
+                <% for(var i = 0; i < data.length; i++) { %>
+
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].courseId%></td>
+                    <td><%=data[i].courseName%></td>
+                    <td><%=data[i].STT%></td>
+                    <td><%=data[i].yearName%></td>
+                    <td><%=data[i].semesterName%></td>
+                    <td style="text-align: center;">
+                        <a class="a-inside view" href="../follow/view/<%=data[i].fileId%>">Xem</a>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+
+        </div>
+        <% } %>
+    </div>
+
+    <% if (reqBody.courseName == 'on') { %>
+        <script>
+            document.getElementById("courseName").checked = true;
+        </script>
+    <% } else { %>
+        <script>
+            document.getElementById("courseId").checked = true;
+        </script>
+    <% } %>
+
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+<%- include layouts/footer.ejs%>
